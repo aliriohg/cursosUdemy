@@ -33,7 +33,7 @@ numeros.forEach(e => {
 // Mostrar Array en consola 
 console.log(numeros);
 
-var numerosOrdenados = numeros;
+var numerosOrdenados = numeros1;
 //Ordenar Arrat
 for (var i = 0; i < numerosOrdenados.length; i++) {
     for (var j = 0; j < numerosOrdenados.length - i; j++) {

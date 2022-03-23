@@ -1,0 +1,10 @@
+.idea/*
+.vscode/*
+.mvn/*
+*.iml
+build/*
+src/node_modules/*
+src/.nyc_output
+src/coverage/*
+src/xunit.xml
+src/test-results.xml
