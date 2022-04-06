@@ -1,79 +1,57 @@
 'use strict'
-/**
- * Pida 6 numeros por pantalla y los meta en un array
- * Mostrar el array entero en el cuerpo de la pagina y en la consola
- * ordenarlo y mostrarlo
- * Invertir su orden y mostrarlo
- * Mostrar cuantos elementos tiene el array 
- * Busqueda de un valor introducido por el usuario, que diga si lo encuentra y su indice
- */
 
-function mostrarArray(elementos, textoCustom = "") {
-    document.write('<h1>Contenido del array ' + textoCustom + '</h1>')
-    document.write('<ul>');
-    elementos.forEach(e => {
-        document.write('<li>' + e + '</li>')
-    })
-    document.write('</ul>');
+/*
+1. Pida 6 numeros por pantalla y los meta en un array
+2. Mostrar el array entero (todos sus elementos) en el cuerpo de la pagina y en la consola
+3. Ordenarlo y mostrarlo
+4. Invertir su orden y mostrarlo
+5. Mostrar cuantos elementos tiene el array
+6. Busqueda de un valor introducido por el usuario, que nos diga si lo encuentra y su indice
+(Se valorará el uso de funciones)
+*/
+
+function mostrarArray(elementos, textoCustom = ""){
+	document.write("<h1>Contenido del array "+textoCustom+"</h1>");
+	document.write("<ul>");
+	elementos.forEach((elemento, index) => {
+		document.write("<li>"+elemento+"</li>");
+	});
+	document.write("</ul>");
 }
 
 // Pedir 6 numeros
 var numeros = [];
 
-for (var i = 0; i < 6; i++) {
-    numeros.push(parseInt(prompt('Digite el numero', 0)));
+for(var i = 0; i <= 5; i++){
+	numeros.push(parseInt(prompt("Introduce un numero", 0)));
 }
 
-// Mostrar en el cuerpo de la pagina
-document.write('<h1>Contenido del Array</h1>');
-numeros.forEach(e => {
-    document.write('<strong>' + e + '</strong><br/>');
-})
+// Mostrar en el cuerpo de la página
+mostrarArray(numeros);
 
-// Mostrar Array en consola 
+// Mostrar array en la consola
 console.log(numeros);
 
-var numerosOrdenados = numeros1;
-//Ordenar Arrat
-for (var i = 0; i < numerosOrdenados.length; i++) {
-    for (var j = 0; j < numerosOrdenados.length - i; j++) {
-        if (numerosOrdenados[j - 1] > numerosOrdenados[j]) {
-            let aux = numerosOrdenados[j - 1];
-            numerosOrdenados[j - 1] = numerosOrdenados[j];
-            numerosOrdenados[j] = aux;
-        }
-    }
-}
-console.log('numeros Ordenados: ', numerosOrdenados);
-mostrarArray(numerosOrdenados, 'Numeros Ordenados');
+// Ordenar y mostrar
+numeros.sort(function(a, b){return a-b});
+mostrarArray(numeros, 'ordenado');
 
-//numeros Invertidos
-var numerosInvertidos = numeros;
+// Invertir y mostrar
+numeros.reverse();
+mostrarArray(numeros, 'revertido');
 
-for (var i = 0; i < numerosInvertidos.length; i++) {
-    for (var j = 0; j < numerosInvertidos.length - i; j++) {
-        if (numerosInvertidos[j - 1] < numerosInvertidos[j]) {
-            let aux = numerosInvertidos[j - 1];
-            numerosInvertidos[j - 1] = numerosInvertidos[j];
-            numerosInvertidos[j] = aux;
-        }
-    }
-}
-console.log('numeros Invertidos: ', numerosInvertidos);
-mostrarArray(numerosInvertidos, 'Numeros Invertidos')
-
-// cantidad de elementos
-document.write('<h1>La cantidad de numeros es: ' + numeros.length + '</h1>');
+// Contar elementos
+document.write("<h1>El array tiene: "+numeros.length+" elementos");
 
 // Busqueda
-var busqueda = parseInt(prompt('Busca un numero: ', 0));
-var posicion = numeros.findIndex(n => n == busqueda);
+var busqueda = parseInt(prompt("Busca un numero", 0));
 
-if (posicion && posicion != -1) {
-    document.write('<h1>Encontrado</h1>');
-    document.write('<h1>Posicion de la busqueda: ' + posicion + '</h1>');
+var posicion = numeros.findIndex( numero => numero == busqueda);
 
-} else {
-    document.write('<h1>No Encontrado</h1>');
-
+if(posicion && posicion != -1){
+	document.write("<hr/><h1>ENCONTRADO</h1>");
+	document.write("<h1>Posición de la busqueda: "+posicion+"</h1><hr/>");
+}else{
+	document.write("<hr/><h1>NO ENCONTRADO</h1><hr/>");
 }
+

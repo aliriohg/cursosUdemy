@@ -1,11 +1,18 @@
 'use strict'
 
-//BOM browser object model
-function getBOM() {
-    console.log('window.innerHeight', window.innerHeight);
-    console.log('screen.height', screen.height);
+// BOM - Browser Object Model
+function getBom(){
+	console.log(screen.width);
+	console.log(screen.height);
+	console.log(window.location);
 }
 
-function redirect(url) {
-    window.location.href(url);
+function redirect(url){
+	window.location.href = url;
 }
+
+function abrirVentana(url){
+	window.open(url,"","width=400,height=300");
+}
+
+getBom();
